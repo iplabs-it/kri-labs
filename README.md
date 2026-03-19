@@ -26,55 +26,7 @@ kri-labs/
 
 ## Prerequisites
 
-The labs are designed to run on a **Debian 12** virtual machine with Internet access. Install the following before starting:
-
-### 1. Docker
-
-```bash
-sudo apt-get update
-sudo apt-get install -y ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
-  https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin
-sudo usermod -aG docker $USER
-```
-
-> Log out and back in (or run `newgrp docker`) for the group change to take effect.
-
-### 2. Containerlab
-
-```bash
-bash -c "$(curl -sL https://get.containerlab.dev)"
-```
-
-### 3. Wireshark & tcpdump (optional, for packet captures)
-
-```bash
-sudo apt-get install -y wireshark tcpdump
-```
-
-### 4. Docker images
-
-The labs use two container images — `frr` and `vpc`. Your instructor will provide these or you can build them yourself. Load them into Docker:
-
-```bash
-docker load -i frr.tar
-docker load -i vpc.tar
-```
-
-Verify they are available:
-
-```bash
-docker images | grep -E 'frr|vpc'
-```
+The labs are designed to run on a **Debian 12** virtual machine with Internet access, Docker, Containerlab, and FRR images.
 
 ## Quick Start
 
@@ -122,13 +74,3 @@ docker images | grep -E 'frr|vpc'
 | Enter container shell | `sudo docker exec -it clab-<lab>-<node> bash` |
 | Show routing table | Inside vtysh: `show ip route` |
 | Live packet capture | `bash ../common/capture.sh clab-<lab>-<node> <iface>` |
-
-## Troubleshooting
-
-- **"permission denied" when running docker** — make sure your user is in the `docker` group and you re-logged.
-- **Containerlab not found** — ensure `/usr/bin/containerlab` exists or re-run the install script.
-- **Images not found** — run `docker images` to check; load them with `docker load -i <image>.tar`.
-- **Wireshark not opening** — you need an X11 display; if running headless, capture to a file instead:
-  ```bash
-  sudo ip netns exec <namespace> tcpdump -nni <iface> -w capture.pcap
-  ```
