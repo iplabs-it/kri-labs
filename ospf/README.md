@@ -38,7 +38,7 @@ Router configurations are intentionally minimal — students configure OSPF them
 ## Usage
 
 ```bash
-cd ~/kri-labs/ospf
+cd ~/KRI-labs/ospf
 containerlab deploy --topo ospf.clab.yml
 docker exec -it clab-ospf-R1 vtysh
 ```
