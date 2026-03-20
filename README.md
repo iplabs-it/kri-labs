@@ -22,8 +22,8 @@ The labs are designed to run on a **Debian 12** virtual machine with Internet ac
 
    ```bash
    cd ~
-   git clone https://github.com/iplabs-it/kri-labs.git
-   cd kri-labs
+   git clone https://github.com/iplabs-it/KRI-labs.git
+   cd KRI-labs
    ```
 
 2. **Switch to the lab branch** when your instructor announces it:
@@ -63,7 +63,7 @@ The labs are designed to run on a **Debian 12** virtual machine with Internet ac
 When the next lab is released, just pull and merge:
 
 ```bash
-cd ~/kri-labs
+cd ~/KRI-labs
 git pull
 git merge --no-edit origin/<labN-topic>
 ```
