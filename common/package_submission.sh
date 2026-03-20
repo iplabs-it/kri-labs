@@ -107,8 +107,10 @@ mkdir -p "$PACKAGE_DIR"
 # Copy checkpoints
 cp -r "$LAB_CHECKPOINTS"/* "$PACKAGE_DIR/"
 
-# Copy identity file
-cp "$IDENTITY_FILE" "$PACKAGE_DIR/.lab_identity"
+# Copy identity file (if exists)
+if [[ -f "$IDENTITY_FILE" ]]; then
+    cp "$IDENTITY_FILE" "$PACKAGE_DIR/.lab_identity"
+fi
 
 # Create summary file
 SUMMARY_FILE="$PACKAGE_DIR/SUBMISSION_SUMMARY.txt"

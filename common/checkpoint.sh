@@ -192,8 +192,7 @@ if [[ "$SKIP_IDENTITY" != "true" && -f "$IDENTITY_FILE" ]]; then
         echo -e "${YELLOW}! Offline mode (self-reported)${NC}"
     fi
 elif [[ "$SKIP_IDENTITY" != "true" && ! -f "$IDENTITY_FILE" ]]; then
-    echo -e "${YELLOW}No identity file found - using VM fingerprint only${NC}"
-    echo -e "${YELLOW}Run setup_identity.sh to set up group identity${NC}"
+    echo -e "${CYAN}Using VM fingerprint mode${NC}"
 fi
 echo ""
 
