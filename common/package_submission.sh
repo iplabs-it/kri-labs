@@ -5,7 +5,7 @@
 #
 
 IDENTITY_FILE="$HOME/.lab_identity"
-CHECKPOINTS_DIR="$HOME/lab_checkpoints"
+CHECKPOINTS_DIR="$HOME/Checkpoints"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
