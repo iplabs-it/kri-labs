@@ -6,7 +6,7 @@
 
 SCRIPT_VERSION="2.2"
 IDENTITY_FILE="$HOME/.lab_identity"
-CHECKPOINTS_DIR="$HOME/lab_checkpoints"
+CHECKPOINTS_DIR="$HOME/Checkpoints"
 
 # Colors
 RED='\033[0;31m'
