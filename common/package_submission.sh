@@ -34,11 +34,11 @@ fi
 LAB_NAME="$1"
 # Convert to absolute path
 OUTPUT_DIR="${2:-.}"
-if [[ -d "$OUTPUT_DIR" ]]; then
-    OUTPUT_DIR="$(cd "$OUTPUT_DIR" && pwd)"
-else
-    OUTPUT_DIR="$(pwd)"
+if [[ ! -d "$OUTPUT_DIR" ]]; then
+    echo -e "${RED}ERROR: Output directory '$OUTPUT_DIR' does not exist.${NC}"
+    exit 1
 fi
+OUTPUT_DIR="$(cd "$OUTPUT_DIR" && pwd)"
 
 # Check identity (optional now)
 if [[ -f "$IDENTITY_FILE" ]]; then
