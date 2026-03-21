@@ -478,4 +478,3 @@ echo ""
 echo -e "${CYAN}Files created:${NC}"
 ls -la "$CHECKPOINT_PATH"/ | tail -n +2
 echo ""
-echo -e "${YELLOW}For submission, include the entire '$CHECKPOINT_NAME' folder.${NC}"
