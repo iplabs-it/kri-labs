@@ -38,16 +38,36 @@ Router configurations include interface IP addresses — students configure IS-I
 | `bridge.sh` | Script to create the Linux bridge |
 | `R1.conf` – `R6.conf` | FRR startup configs with IP addressing |
 
+## Getting the Lab
+
+**If you already have KRI-labs on this VM:**
+
+```bash
+cd ~/KRI-labs
+git pull
+git merge --no-edit origin/lab2-isis
+```
+
+**Starting on a new VM (no repo yet):**
+
+```bash
+cd ~
+git clone https://github.com/iplabs-it/KRI-labs.git
+cd KRI-labs
+git merge --no-edit origin/lab2-isis
+```
+
 ## Usage
 
 ```bash
-cd ~/kri-labs/isis
-sudo containerlab deploy --topo isis.clab.yml
-sudo docker exec -it clab-isis-R1 vtysh
+cd ~/KRI-labs/isis
+bash bridge.sh
+containerlab deploy --topo isis.clab.yml
+docker exec -it clab-isis-R1 vtysh
 ```
 
 When done:
 
 ```bash
-sudo containerlab destroy --topo isis.clab.yml
+containerlab destroy --topo isis.clab.yml
 ```
